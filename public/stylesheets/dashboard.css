@@ -1,0 +1,31 @@
+body {
+  background-color: #b4ca65;
+  color: #a91e50;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.box {
+  max-width: 800px;
+  box-shadow: 5px 5px 5px rgba(144, 144, 144, .5);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+}
+
+textarea {
+  resize: none;
+  margin-bottom: 2px;
+  box-shadow: none;
+}
+
+.gutter { margin-bottom: 15px; }
+.faded { color: rgb(144, 144, 144); }
+.paragraph { margin-left: 10px; }
+p { margin-bottom: 0; }
+
+.profile-name { margin: 0 0 5px; }

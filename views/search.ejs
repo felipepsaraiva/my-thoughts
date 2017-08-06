@@ -1,0 +1,48 @@
+<%- include('header', {
+  title: 'Search',
+  stylesheets: ['dashboard.css']
+}) %>
+
+<div class="container body-font">
+  <h1 class="title-font text-capitalize">Search</h1>
+
+  <div class="box center-block">
+    <div class="row">
+      <div class="col-sm-4 col-md-5 gutter">
+        <div class="btn-group" role="menu" aria-label="...">
+          <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+          <a href="/login/logout" class="btn btn-primary">Logout</a>
+        </div>
+      </div>
+
+      <div class="col-sm-8 col-md-7 gutter">
+        <form action="/search" method="get">
+          <div class="input-group">
+            <input type="text" class="form-control" name="username" placeholder="Username" value="<%= username %>">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <% if (users.length == 0) { %>
+        <p class="faded text-center">No users found...</p>
+      <% } else {
+        for (let user of users) { %>
+          <a href="user/<%= user.username %>">
+            <div class="col-sm-4">
+              <div class="well well-sm">
+                <p class="h4 text-center">@<%= user.username %><p>
+              </div>
+            </div>
+          </a>
+      <%  }
+      } %>
+    </div>
+  </div>
+</div>
+
+<%- include('footer') %>

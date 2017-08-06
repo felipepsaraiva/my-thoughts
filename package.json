@@ -1,0 +1,26 @@
+{
+  "name": "my-thoughts",
+  "version": "0.0.1",
+  "description": "A simple social network to learn more about back end development",
+  "author": "felipepsaraiva",
+  "license": "MIT",
+  "homepage": "https://my-thoughts.glitch.me/",
+  "repository": {
+    "url": "https://github.com/felipepsaraiva/my-thoughts"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "6.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-session": "^1.3.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.5"
+  }
+}

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto');
+
+.title-font {
+  font-family: 'Architects Daughter', cursive;
+}
+
+.body-font {
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: inherit;
+}

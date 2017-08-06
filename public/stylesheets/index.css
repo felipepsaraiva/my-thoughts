@@ -1,0 +1,31 @@
+body {
+  background-color: #b4ca65;
+  color: #a91e50;
+}
+
+h1 {
+  margin-bottom: 60px;
+  font-weight: bold;
+  font-size: 6em;
+  text-align: center;
+}
+
+.container {
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+}
+
+.separator {
+  border-left: solid 1px rgba(244, 244, 244, .35);
+}
+
+.field {
+  margin-bottom: 7px;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: solid 1px rgba(244, 244, 244, .35);
+  background-color: transparent;
+  color: white !important;
+  text-align: center;
+}

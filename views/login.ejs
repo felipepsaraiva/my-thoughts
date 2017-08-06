@@ -1,0 +1,38 @@
+<%- include('header', {
+  title: 'Sign In',
+  stylesheets: ['index.css']
+}) %>
+
+<div class="container body-font">
+  <h1 class="title-font">My Thoughts</h1>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <h2 class="title-font text-center">Sign In</h2>
+
+      <form action="/login" method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input class="form-control input-lg field" type="text" id="username" name="username" autocomplete="off" value="<%= data.username || '' %>">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password1</label>
+          <input class="form-control input-lg field" type="password" id="password" name="password" autocomplete="off">
+        </div>
+
+        <% if (errors.length > 0) { %>
+          <div class="well">
+            <% for (let error of errors) { %>
+              <p><strong><%= error %></strong></p>
+            <% } %>
+          </div>
+        <% } %>
+
+        <button type="submit" class="btn btn-primary btn-lg center-block">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('footer') %>

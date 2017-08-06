@@ -1,0 +1,85 @@
+<%- include('header', {
+  title: 'Dashboard',
+  stylesheets: ['dashboard.css']
+}) %>
+
+<div class="container body-font">
+  <h1 class="title-font text-capitalize">Dashboard</h1>
+
+  <div class="box center-block">
+    <div class="row">
+      <div class="col-sm-4 col-md-5 gutter">
+        <div class="btn-group" role="menu" aria-label="...">
+          <a href="/user/<%= user.username %>" class="btn btn-primary">My Profile</a>
+          <a href="/login/logout" class="btn btn-primary">Logout</a>
+        </div>
+      </div>
+
+      <div class="col-sm-8 col-md-7 gutter">
+        <form action="/search" method="get">
+          <div class="input-group">
+            <input type="text" class="form-control" name="username" placeholder="Username">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row gutter">
+      <div class="col-xs-12">
+        <form id="thought-form" action="/dashboard" method="post">
+          <textarea class="form-control" rows="3" placeholder="I'm thinking about..." id="content" name="content"></textarea>
+
+          <button type="submit" class="btn btn-primary pull-right">Share</button>
+          <p id="hint" class="faded small">0/<%= maxChar %></p>
+        </form>
+      </div>
+    </div>
+
+    <h3 class="title-font text-primary text-center gutter">
+      Friends' Thoughts
+      <a href="" class="paragraph"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+    </h3>
+
+    <div>
+      <% if (posts.length == 0) { %>
+        <p class="faded text-center">No thoughts found...</p>
+      <% } else {
+        for (let post of posts) {%>
+          <p><a href="/user/<%= post.author %>" class="title-font"><%= (post.author == user.username ? 'Me' : '@' + post.author) %></a> <small class="faded paragraph"><%= new Date(post.date).toLocaleString() %></small></p>
+          <pre class="body-font gutter"><%= post.content %></pre>
+      <%  }
+      } %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function updateCount() {
+    var length = $('textarea').val().length;
+    $('#hint').text(length + '/<%= maxChar %>');
+
+    if (length <= <%= maxChar %>)
+      $('#hint').css('color', 'rgb(144, 144, 144)');
+    else
+      $('#hint').css('color', '#C00');
+  }
+
+  $(document).ready(function() {
+    updateCount();
+    $('textarea').on('keyup', updateCount);
+
+    $('#thought-form').submit(function(evt) {
+      var length = $('#content').val().length;
+
+      if (length <= 0 || length > 255) {
+        alert('The thought must have more than zero and less than <%= maxChar %> characters!');
+        evt.preventDefault();
+      }
+    });
+  });
+</script>
+
+<%- include('footer') %>

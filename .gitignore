@@ -1,0 +1,4 @@
+node_modules/
+*.log
+commands.txt
+TODO.md
