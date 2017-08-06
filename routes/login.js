@@ -38,6 +38,8 @@ router.post('/', urlencoded, function(req, res) {
         res.render('login', { errors: errors, data: params });
       }
     });
+  } else {
+    res.render('login', { errors: errors, data: params });
   }
 });
 
