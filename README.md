@@ -1,5 +1,7 @@
 # **My Thoughts**
 
+*No longer maintained*
+
 A simple social network to learn more about back-end development.
 
 https://my-thoughts.glitch.me/
